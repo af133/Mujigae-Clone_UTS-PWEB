@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mujigae Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+  <style>
+     /* ================ Section 1 (Gambar + P) ================== */
+     .section_1 {
+      text-align: center;
+    }
+    .hero-image {
+        background: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1580008087842-QYR96FPEHS5PXIZOMEJA/mujigae.jpg?format=2500w') center center/cover no-repeat;
+        width: 100%;
+        height: 40rem;
+    }
+    .section_1 p {
+        text-align: left;
+        margin: 2rem auto;
+        color: gray;
+        font-size: 1.2rem;
+        max-width: 1000px;
+        padding: 0 2rem;
+    }
+
+    .fade-in {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 1s ease-out;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .image {
+            width: auto;
+            height: 30rem;
+            object-fit: cover;
+        }
+   
+        /* ================ Responsive ================== */
+        @media (max-width: 768px) {
+        .box{
+            margin: 0rem ;
+        }
+      .hero-image {
+        height: 250px; /* Gambar diperkecil di layar kecil */
+        background-size: cover;
+      }
+      .section_1 p {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================================== Navbar =========================================== -->
+
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="home.html">HOME</a>
+    <a href="menus.html">MENU</a>
+  </div>
+  <div class="logo">
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/fed8ff1b-fb22-4b45-bed4-40fc579ee362/Logo+Mujigae+Casual+Korean+Food.png?format=500w" alt="Logo">
+  </div>
+  <div class="nav-right">
+    <a href="about.html">ABOUT</a>
+    <a href="#">OUTLET</a>
+    <a href="#">CAREER</a>
+    <a href="#"><img style="width: 30px;" src="https://static.vecteezy.com/system/resources/thumbnails/009/652/218/small_2x/magnifying-glass-icon-isolated-on-white-background-search-illustration-vector.jpg" alt=""></a>
+    <div class="hamburger" onclick="toggleSidebar()">
+      <div></div>
+      <div></div>
+      <div></div>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <a href="#">HOME</a>
+  <a href="#">MENU</a>
+  <a href="#">ABOUT</a>
+  <a href="#">OUTLET</a>
+  <a href="#">CAREER</a>
+</div>
+
+
+<!-- ==================================== Section 1 =========================================== -->
+<section class="section_1">
+    
+    <div class="hero-image"></div>
+        <p>Korea terkenal akan sajian makanan yang akan mereka hidangkan. Mereka percaya makanan harus memuaskan seluruh indra, bukan hanya mengenyangkan perut. Mereka menerapkan keseimbangan antara Yin dan Yang dalam menghasilkan makanan yang sehat dan proposional, sehingga membentuk sebuah seni yang indah dan dapat dinikmati.</p>
+        <p>Itulah mengapa kami memilih nama Mujigae, yang artinya adalah Pelangi, karena kami ingin restoran kami memiliki filosofi layaknya pelangi, karya seni dari Tuhan.</p>
+        
+        
+        <div class="fade-in" id="text1" >
+            <h4 style="color: rgb(9, 129, 194);font-family: 'Times New Roman', Times, serif;">“Improving Quality of Life through Innovation in Daily Food”</h4>
+        </div>
+        <p style="font-size: 15px;">— Our Vision</p>
+        <div class="fade-in" id="image1">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/3d021386-4267-40d6-ba22-7aaef9759875/Cheaper-Nearer-Faster.png?format=1500w" alt="Gambar" class="image">
+        </div>
+        <p style="font-size: 15px;">— Our Mision</p>
+        
+</section>
+
+<footer style="text-align: center;">
+    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt=""></a>
+    <a href=""><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt=""></a>
+    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9bsGHRoSdbSTK10yWbe9pixa2L6lJqLWUmg&s" alt=""></a>
+    <p style="color: black;">Mujigae Catering Service Fresh Suki by Mujigae Raja Nasgor</p>
+    <p style="font-size: 1.2rem;margin-top: 2rem;">© 2023 PT. Animo Resto Primera. All rights reserved.</p>
+</footer>
+<script>
+    window.addEventListener('scroll', function() {
+        let elements = document.querySelectorAll('.fade-in');
+        elements.forEach(function(element) {
+            if (element.getBoundingClientRect().top <= window.innerHeight * 0.75) {
+                element.classList.add('active');
+            }
+        });
+    });
+</script>
+<script src="script.js"></script>
+</body>
+</html>

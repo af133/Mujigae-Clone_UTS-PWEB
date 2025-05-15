@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mujigae Clone</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ==================================== Navbar =========================================== -->
+
+<nav class="navbar">
+  <div class="nav-left">
+    <a href="home.html">HOME</a>
+    <a href="menus.html">MENU</a>
+  </div>
+  <div class="logo">
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/fed8ff1b-fb22-4b45-bed4-40fc579ee362/Logo+Mujigae+Casual+Korean+Food.png?format=500w" alt="Logo">
+  </div>
+  <div class="nav-right">
+    <a href="about.html">ABOUT</a>
+    <a href="#">OUTLET</a>
+    <a href="#">CAREER</a>
+    <a href="#"><img style="width: 30px;" src="https://static.vecteezy.com/system/resources/thumbnails/009/652/218/small_2x/magnifying-glass-icon-isolated-on-white-background-search-illustration-vector.jpg" alt=""></a>
+    <div class="hamburger" onclick="toggleSidebar()">
+      <div></div>
+      <div></div>
+      <div></div>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar">
+  <a href="#">HOME</a>
+  <a href="#">MENU</a>
+  <a href="#">ABOUT</a>
+  <a href="#">OUTLET</a>
+  <a href="#">CAREER</a>
+</div>
+
+<!-- Slider -->
+<div class="slider" id="slider">
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <div class="slides">
+      <div class="slide" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1666678697793-39EWIFDJJ92E0YY99R6W/Main+Banner+Web+BBQ.jpg?format=2500w');"></div>
+      <div class="slide" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1691120387166-NMD9ZR0FRAHJ8OVQK832/ADS-landscape-+Mujigae+catering-Paket+lengkap.png?format=2500w');"></div>
+      <div class="slide" style="background-image: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1671003389035-8DUBOVYYK15AEAI1HMMS/Main+Banner+Web+Topokki+copy.jpg?format=2500w');"></div>
+    </div>
+    <button class="next" onclick="nextSlide()">❯</button>
+  </div>
+  
+
+<section class="section_1">
+    <!-- Our Specialty -->
+    
+    <h1>Our Specialty</h1>
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573783921893-22W7SIF42UKCKW1LP8KG/line1.png?format=2500w" alt="">
+    
+    <!-- Gambar Specialty -->
+    <div class="features">
+        <div class="feature-box">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1580011239336-R1L14DCYAIO9UU4L8NLG/kpop.jpg?format=500w" alt="K-Entertainment">
+          <h3>K-Entertainment</h3>
+          <p>Ingin menghadirkan suasana ke-Korea-an, kami menyediakan musik KPOP dan K-Drama yang selalu up-to-date yang akan menemanimu selama kamu makan.</p>
+        </div>
+      
+        <div class="feature-box">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1580010467740-JSJP5LMJ2NOJ9MX6BKO2/64618369_378204206233552_7325604897093062165_n.jpg?format=500w" alt="Fresh Ingredients">
+          <h3>Fresh Ingredients</h3>
+          <p>Semua resep yang digunakan merupakan resep asli dari Mujigae Resto, dimasak dengan bahan berkualitas dan diproses dengan teknik khusus.</p>
+        </div>
+      
+        <div class="feature-box">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1580010767003-PLNB4D0R0PPSG93JUW37/36628807_1671626639612804_9182202030838513664_n.jpg?format=500w" alt="High Technology">
+          <h3>High Technology</h3>
+          <p>Kami menyediakan fasilitas self-service pada setiap meja menggunakan iPad, sehingga kamu dapat memesan menu, request lagu, hingga memanggil pelayan.</p>
+        </div>
+        <div class="feature-box">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1580010459751-OTLWMXCSJ9OZHG31GV6P/42437697_2040356022653875_5778572678428983808_n.jpg?format=500w" alt="High Technology">
+          <h3>Halal Certificate</h3>
+          <p>Mujigae Resto merupakan restoran Korea pertama di Indonesia yang mendapatkan sertifikasi halal MUI pada 13 Februari 2017, dan kami terus berkomitmen untuk menyajikan makanan yang halal.</p>
+        </div>
+        <div class="feature-box">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/c5d674e0-3335-4b26-a88d-2991cd65557e/Mujigae+3+November+2.png?format=500w" alt="High Technology">
+          <h3>Mujigae Korean Delivery</h3>
+          <p>Mujigae hadir dengan 61 Outlet Online Delivery yang tersebar di Jabodetabek, Purwakarta, Karawang, Jatinangor, Cimahi & Bandung. Memudahkan pesan makanan karena dekat dan cepat.</p>
+        </div>
+      </div>
+      <button>MORE ABOUT US</button>
+      
+      <!-- Our Signature Menu -->
+       
+       <div class="signatures" >
+            <div class="signature">
+                <h1>Our Signature Menu</h1>
+            </div>
+       </div>
+       <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573784666865-VXFHYU1WAK7NI6QF5QN6/line2.png?format=2500w" alt="">
+       
+       <!-- menu gambar -->
+       <div class="menu-section" style="text-align: left;">
+        <div class="menu-item hidden">
+          <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/3879b0c1-1eb2-4e41-beeb-604e267a95f2/signature-bibimbap.jpg?format=1500w" alt="Bibimbap">
+          <div class="menu-text" id="menu_left">
+            <h2>Bibimbap</h2>
+            <p>Temukan pengalaman makan ala Korea dengan mengaduk nasi serta beragam topping khusus dan saus spesial yang tersaji dalam sebuah mangkuk panas.</p>
+          </div>
+        </div>
+      
+        <div class="menu-item hidden">
+          <img class="menu_logo" src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/e74a5f6b-807a-4284-93d6-857a0a98643c/Topokki+Banner+Web.jpg?format=1500w" alt="Topokki">
+          <div class="menu-text" id="menu_right">
+            <h2>Topokki</h2>
+            <p>Nikmati rice cake dengan tekstur yang lembut, dibalur saus pedas dan creamy, resep asli dari Korea.</p>
+          </div>
+        </div>
+
+        <div class="menu-item hidden">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/7ad9edc4-80e6-4f68-9e4b-f10952273a72/Korean+BBQ+Web.jpg?format=1500w" alt="Bibimbap">
+            <div class="menu-text" id="menu_left">
+              <h2>Korean BBQ</h2>
+              <p>Rasakan sensasi gurihnya BBQ yang disajikan dan dimasakan menggunakan bangjja, alat tradisional Korea yang terbuat dari kuningan dan tembaga.</p>
+            </div>
+          </div>
+        </div>
+        <button>SEE ALL MENUS</button>
+        
+        
+</section>
+<div style="
+    background: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1666237544583-C3OXYEGFY1A22OP1RMET/banner-3+copy.jpg?format=2500w') center center / cover no-repeat fixed;
+    width: 100%;
+    height: 23rem;
+">
+</div>
+
+<!-- ==================================== section 2 ========================================= -->
+
+<section class="section_2">
+    <!-- Mujigae Korea Delivery -->
+    <h1>Mujigae Korean Delivery</h1>
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573784823885-NG5R6PHPUYMNWMRF2JPE/line3.png?format=2500w" alt="">
+
+    <!-- Gambar -->
+    <div class="section">
+        <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/23a64b54-fb72-43e0-8ac6-9f884b675a7a/Outlet-Tebet-4%3B5.jpg?format=2500w" alt="Closer To You">
+        <div class="text">
+            <h2>Closer To You</h2>
+            <p>Kini Mujigae semakin dekat denganmu. Mujigae Korean Delivery hadir sebagai langkah untuk menjangkau lebih banyak area.</p>
+            <a href="#">Lihat lokasi Mujigae Korean Delivery</a>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/d54a74a5-02ee-4ad9-ae47-798a1f03537e/channel-4.jpg?format=2500w">
+        <div class="text">
+            <h2>Faster Than Ever</h2>
+            <p>Tidak perlu menunggu lama untuk menikmati Topokki favoritmu. Hanya klik dan bayar, Mujigae bisa tiba di depan rumahmu. Pesan melalui layanan pesan-antar (online) ataupun takeaway langsung di outlet kami.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/a59c9292-ddb5-437c-8f58-ece95aac353a/Mockup+hape+promo-web+%281%29.png?format=2500w" alt="Best Deals">
+        <div class="text">
+            <h2>Best Deals</h2>
+            <p>Banyak penawaran dan promo menarik di Mujigae Korean Delivery sehingga makan Mujigae menjadi lebih hemat.</p>
+        </div>
+    </div>
+    <h1>Ingin Coba Pesan?</h1>
+    <button style="margin-top: 2rem;">ORDER HERE</button>
+
+    <!-- our product -->
+
+    <h1> Our Product</h1>
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573783921893-22W7SIF42UKCKW1LP8KG/line1.png?format=2500w" alt="">
+    
+    <div class="produk-container">
+        <div class="produk-item">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573725011808-G7O1ZGK2H2EAWU5CYK88/Topokki.jpg?format=500w" alt="Topokki">
+            <p>Topokki (300 gr)</p>
+        </div>
+        <div class="produk-item">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573725705515-O7N7TST9LOZ2GY7AKDIF/Kimchi.jpg?format=500w" alt="Kimchi">
+            <p>Kimchi</p>
+        </div>
+        <div class="produk-item">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573725922021-564V8NGN80H42LR0IB11/Spicy+Rapokki.jpeg?format=500w" alt="Spicy Rapokki">
+            <p>Spicy Rapokki</p>
+        </div>
+        <div class="produk-item">
+            <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1641209694128-I7V9NVPCK6VKH4HN8HU2/Jajangmyeon+FMCG.png?format=500w" alt="Jajangmyeon">
+            <p>Jajangmyeon</p>
+        </div>
+    </div>
+
+    <button>SEE ALL PRODUCTS</button>
+
+
+</section>
+
+<div style="
+    background: url('https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1574738191137-YQY9NXR6ANK2C8GBLLGU/banner-2.jpg?format=2500w') center center / cover no-repeat fixed;
+    width: 100%;
+    height: 23rem;
+">
+</div>
+
+<!-- ===================================== Section 3 ========================================= -->
+
+<section class="section_3">
+    <h1>Visit Us</h1>
+    <img src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573784666865-VXFHYU1WAK7NI6QF5QN6/line2.png?format=2500w" alt="">
+    <br><br><br><br>
+    <p>BANDUNG</p>
+    <ul>
+        <li>Cihampelas Walk, Young Street</li>
+    </ul>
+    <p>BEKASI</p>
+    <ul>
+        <li>Summarecon Mall Bekasi, Lobby Oval, GF</li>
+    </ul>
+    <p>TANGGERANG</p>
+    <ul>
+        <li>Summarecon Mall Serpong 2, Down Town Area</li>
+    </ul>
+    <button>SEE LOCATION MAPS</button>
+
+
+    <h1 style="margin-top:5rem ;">Promo dan Informasi Menarik</h1>
+    <img style="margin-top:2rem ;" src="https://images.squarespace-cdn.com/content/v1/5dccc025a7ec043789f57f1d/1573784823885-NG5R6PHPUYMNWMRF2JPE/line3.png?format=2500w" alt="">
+    <p style="font-size: 20px;margin-top: 3rem;margin-bottom: 3rem;">Hanya dengan email, kamu bisa mendapatkan informasi terbaru dan promo-promo menarik dari Mujigae loh!</p>
+
+        
+    <form>
+        <label style="text-align: left;">Name <small>(required)</small></label>
+        <div class="row">
+        <input type="text" placeholder="First Name" style="padding: 1rem;" required>
+        <input type="text" placeholder="Last Name" required>
+        </div>
+    
+        <label style="text-align: left;">Email <small>(required)</small></label>
+        <input style="padding: 1rem;" type="email" placeholder="Email" class="full-width" required>
+    
+        <button type="submit" style="width: 8rem;">Submit</button>
+    </form>
+</section>
+
+<!-- ===================================== Footer ============================================ -->
+
+<footer style="text-align: center;">
+    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuH7c5cLpGehi0b4iQk90fXUzC9p7Ebla13w&s" alt=""></a>
+    <a href=""><img src="https://static.vecteezy.com/system/resources/previews/023/986/704/non_2x/youtube-logo-youtube-logo-transparent-youtube-icon-transparent-free-free-png.png" alt=""></a>
+    <a href=""><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9bsGHRoSdbSTK10yWbe9pixa2L6lJqLWUmg&s" alt=""></a>
+    <p style="color: black;">Mujigae Catering Service Fresh Suki by Mujigae Raja Nasgor</p>
+    <p style="font-size: 1.2rem;margin-top: 2rem;">© 2023 PT. Animo Resto Primera. All rights reserved.</p>
+</footer>
+<script>
+    let currentIndex = 0;
+const slides = document.querySelector('.slides');
+const slideElements = document.querySelectorAll('.slide');
+const totalSlides = slideElements.length;
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalSlides;
+  updateSlide();
+  stopAutoSlide(); // Stop the auto-slide when the user manually interacts
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  updateSlide();
+  stopAutoSlide(); // Stop the auto-slide when the user manually interacts
+}
+
+let autoSlide = setInterval(() => {
+  nextSlide();
+}, 4000);
+
+function stopAutoSlide() {
+  clearInterval(autoSlide); // Stop the current interval
+  autoSlide = setInterval(() => {
+    nextSlide();
+  }, 4000); // Restart auto-slide after manual interaction
+}
+
+</script>
+<script src="script.js"></script>
+</body>
+</html>

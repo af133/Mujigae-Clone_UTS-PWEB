@@ -1,0 +1,721 @@
+/* ========================================================= */
+/*                  IMPORT FONT DARI GOOGLE                  */
+/* ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap');
+
+
+/* ========================================================= */
+/*                  RESET CSS DAN PENGATURAN DASAR           */
+/* ========================================================= */
+
+* {
+    margin: 0; /* Menghilangkan semua margin default dari semua elemen */
+}
+
+img {
+    cursor: pointer; /* Membuat kursor berubah menjadi pointer saat hover gambar */
+    margin-top: 5px; /* Memberikan jarak atas 5px pada semua gambar */
+}
+
+body {
+    margin: 0; /* Menghilangkan margin default body */
+    font-optical-sizing: auto; /* Otomatis mengatur ketajaman font */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-weight: normal; /* Set font normal, tidak bold */
+    font-family: "Chewy", cursive; /* Default font menjadi Chewy */
+}
+
+.navbar a:hover {
+    color: red; /* Saat hover link navbar, warnanya berubah merah */
+}
+
+
+/* ========================================================= */
+/*                           NAVBAR                          */
+/* ========================================================= */
+
+.navbar {
+    margin: 0rem 3rem; /* Memberikan margin kiri-kanan 3rem */
+    margin-bottom: 1rem; /* Memberikan margin bawah 1rem */
+    display: flex; /* Menggunakan flexbox untuk membuat elemen sejajar */
+    justify-content: space-between; /* Membuat elemen kiri-kanan sejauh mungkin */
+    align-items: center; /* Pusatkan elemen secara vertikal */
+    padding: 10px 30px; /* Memberikan padding atas-bawah 10px dan kiri-kanan 30px */
+    top: 0; /* Navbar diposisikan di atas */
+    background: white; /* Latar belakang putih */
+    z-index: 1000; /* Membuat navbar di atas elemen lain */
+}
+
+.nav-left, .nav-right {
+    display: flex; /* Membuat isi elemen menjadi flexbox */
+    gap: 20px; /* Memberi jarak antar elemen dalam flex */
+    align-items: center; /* Rata tengah secara vertikal */
+}
+
+.nav-left a, .nav-right a {
+    text-decoration: none; /* Menghapus garis bawah pada link */
+    color: black; /* Warna teks hitam */
+    font-size: 14px; /* Ukuran font 14px */
+    letter-spacing: 1px; /* Spasi antar huruf 1px */
+    font-family: "Quicksand", sans-serif; /* Menggunakan font Quicksand */
+}
+
+.logo img {
+    height: 9rem; /* Tinggi logo 9rem */
+}
+
+.hamburger {
+    display: none; /* Default sembunyi di layar besar */
+    flex-direction: column; /* Atur garis hamburger ke vertikal */
+    gap: 5px; /* Jarak antar garis hamburger */
+    cursor: pointer; /* Pointer saat hover */
+}
+
+.hamburger div {
+    width: 25px; /* Lebar garis hamburger */
+    height: 3px; /* Tinggi garis hamburger */
+    background-color: black; /* Warna garis hamburger hitam */
+}
+
+
+/* ========================================================= */
+/*                      SIDEBAR MENU (MOBILE)                */
+/* ========================================================= */
+
+.sidebar {
+    position: fixed; /* Sidebar tetap posisinya saat di-scroll */
+    top: 0; /* Mulai dari atas layar */
+    left: -100%; /* Sembunyikan sidebar dari layar awalnya */
+    width: 100%; /* Lebar penuh layar */
+    height: 100%; /* Tinggi penuh layar */
+    background: white; /* Warna latar putih */
+    display: flex; /* Flexbox untuk isi sidebar */
+    flex-direction: column; /* Isi ke arah kolom */
+    align-items: center; /* Isi rata tengah horizontal */
+    justify-content: center; /* Isi rata tengah vertikal */
+    transition: 0.5s ease; /* Animasi transisi saat show/hide */
+    z-index: 999; /* Lebih tinggi dari banyak elemen */
+}
+
+.sidebar a {
+    margin: 15px 0; /* Margin atas bawah antar link */
+    font-size: 24px; /* Ukuran teks besar di sidebar */
+    text-decoration: none; /* Tanpa garis bawah */
+    color: black; /* Warna teks hitam */
+}
+
+.sidebar.show {
+    left: 0; /* Menampilkan sidebar dengan mendorong ke posisi kiri 0 */
+}
+/* ============================== SLIDESHOW ============================== */
+
+/* Container utama untuk slideshow */
+.slider {
+    margin: 4rem; /* Memberikan jarak luar (margin) 4rem dari semua sisi */
+    position: relative; /* Membuat posisi anaknya (seperti tombol) bisa absolute terhadap slider */
+    max-width: 100%; /* Maksimum lebar slider adalah 100% dari parent */
+    height: 600px; /* Tinggi slider tetap 600px */
+    overflow: hidden; /* Jika gambar lebih besar, bagian luar akan disembunyikan */
+}
+
+/* Container yang membungkus semua slide */
+.slides {
+    display: flex; /* Mengatur semua slide berjajar horizontal */
+    transition: transform 0.5s ease; /* Animasi transisi saat slide bergeser */
+    height: 100%; /* Tinggi slides 100% mengikuti parent (.slider) */
+}
+
+/* Setiap satu slide gambar */
+.slide {
+    min-width: 100%; /* Setiap slide mengambil seluruh lebar .slider */
+    flex-shrink: 0; /* Mencegah slide mengecil lebih kecil dari 100% */
+    background-size: cover; /* Gambar di dalam akan menutupi area dengan crop rapi */
+    background-position: center; /* Gambar diatur supaya center */
+}
+
+/* Tombol navigasi sebelah kiri (prev) dan kanan (next) */
+.prev, .next {
+    position: absolute; /* Posisi tombol absolut terhadap parent (.slider) */
+    top: 50%; /* Tombol berada di tengah secara vertikal */
+    transform: translateY(-50%); /* Menggeser tombol ke atas 50% supaya beneran tengah */
+    background-color: rgba(0,0,0,0.5); /* Warna latar tombol semi-transparan hitam */
+    color: white; /* Warna ikon/text tombol putih */
+    border: none; /* Menghilangkan border tombol */
+    padding: 10px; /* Ruang dalam tombol */
+    cursor: pointer; /* Kursor jadi tangan saat hover tombol */
+    font-size: 30px; /* Ukuran font besar */
+    z-index: 2; /* Supaya tombol selalu di atas slide */
+}
+
+/* Posisi tombol Prev di sebelah kiri */
+.prev {
+    left: 10px; /* Jarak tombol 10px dari kiri */
+}
+
+/* Posisi tombol Next di sebelah kanan */
+.next {
+    right: 10px; /* Jarak tombol 10px dari kanan */
+}
+
+/* Hover effect tombol navigasi */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Saat dihover, latar tombol lebih gelap */
+}
+
+
+/* =============================== SECTION 1 ============================== */
+
+/* Container utama untuk section 1 */
+.section_1 {
+    margin: 5rem 5rem; /* Memberi jarak luar atas bawah dan kanan kiri 5rem */
+    text-align: center; /* Semua teks di section ini rata tengah */
+    color: black; /* Warna teks hitam */
+    font-size: 1.6rem; /* Ukuran teks 1.6rem */
+    letter-spacing: 1px; /* Jarak antar huruf 1px */
+    font-family: "Quicksand", sans-serif; /* Menggunakan font Quicksand */
+}
+
+
+/* ========================== OUR SPECIALTY ========================== */
+
+/* Container utama fitur-fitur */
+.features {
+    display: flex; /* Menyusun child-nya secara horizontal */
+    justify-content: center; /* Child dipusatkan di tengah */
+    align-items: flex-start; /* Child disejajarkan ke atas */
+    justify-content: flex-start; /* (Note: Ini override "center" di atas, jadi start ke kiri) */
+    flex-wrap: wrap; /* Jika tidak muat, item akan pindah baris */
+    gap: 40px; /* Jarak antar fitur 40px */
+    margin: 50px auto; /* Atas bawah 50px, kanan kiri auto supaya center */
+    max-width: 1200px; /* Maksimal lebar container 1200px */
+    padding: 0 20px; /* Padding kanan kiri 20px */
+}
+
+/* Box individual untuk setiap fitur */
+.feature-box {
+    text-align: center; /* Teks rata tengah */
+    max-width: 300px; /* Lebar maksimal 300px */
+}
+
+/* Gambar dalam feature box */
+.feature-box img {
+    width: 100%; /* Gambar memenuhi lebar feature-box */
+    height: auto; /* Tinggi menyesuaikan proporsi */
+    border-radius: 8px; /* Sudut gambar dibulatkan 8px */
+}
+
+/* Judul fitur (h3) */
+.feature-box h3 {
+    font-family: Arial, Helvetica, sans-serif; /* Font Arial */
+    font-size: 20px; /* Ukuran font 20px */
+    font-weight: 500; /* Ketebalan font medium */
+    color: #555; /* Warna teks abu-abu tua */
+    margin-top: 20px; /* Jarak atas 20px dari gambar */
+}
+
+/* Deskripsi fitur (paragraf) */
+.feature-box p {
+    font-family: Arial, Helvetica, sans-serif; /* Font Arial */
+    font-size: 16px; /* Ukuran font 16px */
+    font-weight: normal; /* Berat font normal */
+    color: #777; /* Warna teks abu-abu muda */
+    margin-top: 10px; /* Jarak atas 10px dari h3 */
+    line-height: 1.6; /* Tinggi baris 1.6 */
+}
+
+/* Button di bawah section 1 */
+.section_1 button {
+    width: 13rem; /* Lebar tombol 13rem */
+    font-size: 1rem; /* Ukuran font 1rem */
+    border: 2px solid black; /* Garis tepi 2px warna hitam */
+    background-color: transparent; /* Background tombol transparan */
+    height: 4rem; /* Tinggi tombol 4rem */
+    transition: 0.3s; /* Animasi transisi saat hover 0.3 detik */
+}
+
+/* Hover efek untuk tombol di section 1 */
+.section_1 button:hover {
+    background-color: rgb(35, 35, 35); /* Background berubah jadi abu gelap */
+    color: white; /* Teks menjadi putih */
+}
+
+
+/* ========================== SIGNATURE ========================== */
+
+/* Container untuk signature */
+.signatures {
+    margin-top: 5rem; /* Jarak atas 5rem */
+    margin-bottom: 1rem; /* Jarak bawah 1rem */
+    width: 100%; /* Lebar penuh */
+    display: flex; /* Menggunakan flexbox */
+    justify-content: center; /* Anak-anaknya (gambar signature) dipusatkan */
+}
+
+/* Styling untuk gambar signature */
+.signature {
+    width: 20rem; /* Lebar gambar signature 20rem */
+}
+/* Menu Section */
+.menu-section {
+    padding: 50px 20px; /* Memberikan padding 50px secara vertikal dan 20px secara horizontal */
+    display: flex; /* Menggunakan Flexbox untuk tata letak */
+    flex-direction: column; /* Menyusun item-menu dalam arah kolom */
+    gap: 80px; /* Memberikan jarak 80px antara setiap item menu */
+}
+
+/* Menu Item */
+.menu-item {
+    display: flex; /* Flexbox untuk item dalam menu */
+    align-items: center; /* Menyelaraskan gambar dan teks secara vertikal */
+    position: relative; /* Menyediakan posisi relatif untuk mengatur tumpang tindih (z-index) */
+    opacity: 0; /* Menyembunyikan item pada awalnya */
+    transform: translateY(50px); /* Menggeser item 50px ke bawah */
+    transition: all 0.8s ease; /* Menambahkan efek transisi untuk animasi */
+}
+
+/* Ketika menu-item ditampilkan */
+.menu-item.show {
+    opacity: 1; /* Menampilkan item */
+    transform: translateY(0); /* Mengembalikan posisi item ke normal */
+}
+
+/* Menu item genap (even) menggunakan urutan gambar dan teks yang terbalik */
+.menu-item:nth-child(even) {
+    flex-direction: row-reverse; /* Mengubah urutan gambar dan teks */
+}
+
+/* Gambar dalam menu item */
+.menu-item img {
+    z-index: 1; /* Menempatkan gambar di belakang teks jika tumpang tindih */
+    width: 500px; /* Lebar gambar 500px */
+    height: auto; /* Tinggi gambar disesuaikan secara proporsional */
+    border-radius: 15px; /* Membuat sudut gambar melengkung */
+}
+
+/* Teks dalam menu item */
+.menu-text {
+    background-color: black; /* Memberikan latar belakang hitam pada teks */
+    color: white; /* Teks berwarna putih */
+    padding: 20px 30px; /* Memberikan padding pada teks */
+    max-width: 300px; /* Lebar maksimal teks 300px */
+    z-index: 2; /* Menempatkan teks di atas gambar */
+}
+
+/* Posisi menu kiri dan kanan */
+#menu_left {
+    margin-left: 25rem; /* Memberikan margin kiri 25rem */
+    position: absolute; /* Menetapkan posisi item secara absolut */
+}
+#menu_right {
+    margin-right: 25rem; /* Memberikan margin kanan 25rem */
+    position: absolute; /* Menetapkan posisi item secara absolut */
+}
+
+/* Judul dalam teks menu */
+.menu-text h2 {
+    font-size: 18px; /* Ukuran font judul 18px */
+    margin-bottom: 10px; /* Memberikan jarak bawah 10px pada judul */
+}
+
+/* Paragraf dalam teks menu */
+.menu-text p {
+    font-size: 14px; /* Ukuran font paragraf 14px */
+    line-height: 1.5; /* Menambahkan jarak antar baris untuk keterbacaan */
+}
+
+/* Kotak untuk item desain */
+.boxes {
+    margin: 1rem; /* Margin kotak sebesar 1rem */
+    width: 100%; /* Lebar kotak 100% */
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    justify-content: center; /* Menyelaraskan kotak secara horizontal di tengah */
+}
+
+/* Kotak dalam menu */
+.box {
+    width: 55%; /* Lebar kotak 55% dari kontainer */
+}
+
+/* Teks dalam kotak */
+.box p {
+    line-height: 1.5rem; /* Jarak antar baris dalam teks */
+    font-size: 15px; /* Ukuran font 15px */
+}
+
+/* Grid untuk desain */
+.design-grid {
+    display: grid; /* Menggunakan grid untuk tata letak */
+    grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom dalam satu baris */
+    gap: 20px; /* Jarak antara elemen-elemen desain */
+    padding: 20px; /* Memberikan padding pada grid */
+}
+
+/* Item dalam desain grid */
+.design-item {
+    display: flex; /* Menggunakan flexbox untuk item */
+    flex-direction: column; /* Menyusun elemen secara kolom */
+    align-items: center; /* Menyelaraskan item secara horizontal di tengah */
+    text-align: center; /* Menyelaraskan teks di tengah */
+    padding: 10px; /* Memberikan padding pada item */
+    border-radius: 8px; /* Menambahkan sudut melengkung */
+    transition: transform 0.3s ease; /* Menambahkan efek transisi pada transformasi */
+}
+
+/* Gambar dalam desain grid */
+.design-item img {
+    width: 100%; /* Lebar gambar 100% */
+    max-width: 200px; /* Lebar maksimum gambar 200px */
+    height: auto; /* Tinggi gambar otomatis untuk mempertahankan rasio */
+    border-radius: 8px; /* Sudut melengkung pada gambar */
+}
+
+/* Nama desain dalam grid */
+.design-name {
+    margin-top: 40px; /* Memberikan jarak atas pada nama desain */
+    font-size: 13px; /* Ukuran font nama desain */
+    color: #333; /* Warna teks abu-abu */
+}
+
+/* Responsif: Membuat 2 kolom pada layar kecil */
+@media (max-width: 768px) {
+    #designGrid {
+        grid-template-columns: repeat(2, 1fr); /* Menjadi 2 kolom pada layar kecil */
+    }
+}
+
+/* Responsif: Membuat 1 kolom pada layar sangat kecil */
+@media (max-width: 480px) {
+    #designGrid {
+        grid-template-columns: 1fr; /* Menjadi 1 kolom pada layar sangat kecil */
+    }
+}
+
+/* ========================= Section 2 ========================= */
+
+/* Bagian kedua dari desain */
+.section_2 {
+    margin: 5rem 5rem; /* Memberikan margin 5rem di semua sisi */
+    text-align: center; /* Menyelaraskan teks di tengah */
+    color: black; /* Warna teks hitam */
+    font-size: 1.6rem; /* Ukuran font 1.6rem */
+    letter-spacing: 1px; /* Jarak antar huruf 1px */
+    font-family: "Quicksand", sans-serif; /* Font Quicksand */
+}
+
+/* Section yang lebih besar */
+.section {
+    display: flex; /* Menggunakan Flexbox */
+    align-items: center; /* Menyelaraskan item secara vertikal */
+    justify-content: center; /* Menyelaraskan item secara horizontal */
+    padding: 50px 20px; /* Memberikan padding */
+    flex-wrap: wrap; /* Mengatur item agar bisa membungkus jika perlu */
+}
+
+/* Section dengan latar belakang berbeda pada setiap item genap */
+.section:nth-child(even) {
+    flex-direction: row-reverse; /* Mengubah urutan elemen untuk section genap */
+    background-color: #f9f9f9; /* Memberikan warna latar belakang terang */
+}
+
+/* Gambar di dalam section */
+.section img {
+    max-width: 100%; /* Gambar akan memenuhi lebar container */
+    border-radius: 10px; /* Sudut melengkung pada gambar */
+    width: 30rem; /* Lebar gambar tetap 30rem */
+    height: auto; /* Tinggi disesuaikan */
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+}
+
+/* Teks dalam section */
+.text {
+    max-width: 500px; /* Lebar maksimal teks 500px */
+    margin: 2rem; /* Margin sekitar teks */
+    text-align: left; /* Menyelaraskan teks ke kiri */
+}
+
+/* Judul dalam teks */
+.text h2 {
+    margin-bottom: 15px; /* Margin bawah untuk judul */
+    font-size: 23px; /* Ukuran font judul */
+    text-align: left; /* Menyelaraskan judul ke kiri */
+}
+
+/* Paragraf dalam teks */
+.text p {
+    font-size: 19px; /* Ukuran font paragraf */
+    text-align: left; /* Menyelaraskan paragraf ke kiri */
+    margin-bottom: 10px; /* Margin bawah pada paragraf */
+}
+
+/* Tautan dalam teks */
+.text a {
+    border-bottom: 1px solid rgb(111, 111, 111); /* Garis bawah pada tautan */
+    font-size: 14px; /* Ukuran font untuk tautan */
+    text-align: left; /* Menyelaraskan tautan ke kiri */
+    color: #292929; /* Warna tautan abu-abu */
+    text-decoration: none; /* Menghilangkan garis bawah standar */
+}
+
+/* Efek hover pada tautan */
+.text a:hover {
+    text-decoration: underline; /* Memberikan garis bawah saat hover */
+}
+
+/* Tombol di section */
+.section_2 button {
+    margin: 4rem 0rem; /* Margin vertikal pada tombol */
+    width: 13rem; /* Lebar tombol 13rem */
+    font-size: 1rem; /* Ukuran font tombol */
+    border: 2px solid black; /* Border tombol */
+    background-color: transparent; /* Latar belakang tombol transparan */
+    height: 4rem; /* Tinggi tombol 4rem */
+    transition: 0.3s; /* Menambahkan transisi pada efek hover */
+}
+
+/* Efek hover pada tombol */
+.section_2 button:hover {
+    background-color: rgb(35, 35, 35); /* Latar belakang tombol saat hover */
+    color: white; /* Mengubah warna teks menjadi putih saat hover */
+}
+
+/* Container untuk produk */
+.produk-container {
+    margin: 3rem 0rem; /* Margin vertikal untuk container produk */
+    display: flex; /* Flexbox untuk tata letak produk */
+    flex-wrap: wrap; /* Membungkus item jika terlalu banyak dalam satu baris */
+    gap: 40px; /* Jarak antar produk */
+}
+
+/* Item produk */
+.produk-item {
+    width: calc(25% - 30px); /* Lebar item produk (4 item per baris) */
+    text-align: center; /* Menyelaraskan teks di tengah */
+}
+
+/* Gambar produk */
+.produk-item img {
+    width: 100%; /* Gambar memenuhi lebar item produk */
+    height: auto; /* Tinggi disesuaikan secara proporsional */
+    max-height: 300px; /* Menetapkan tinggi maksimal gambar */
+    object-fit: contain; /* Menjaga proporsi gambar */
+}
+
+/* Teks produk */
+.produk-item p {
+    margin-top: 10px; /* Margin atas pada teks produk */
+    font-size: 16px; /* Ukuran font produk */
+    color: #333; /* Warna teks abu-abu */
+}
+
+
+/* ------------------- Section 3 --------------------------- */
+
+.section_3 {
+    margin: 5rem 5rem; /* Memberikan margin 5rem pada bagian atas dan bawah serta 5rem pada kiri dan kanan */
+    text-align: center; /* Menyelaraskan teks di tengah */
+    color: black; /* Warna teks hitam */
+    font-size: 1.6rem; /* Ukuran font 1.6rem */
+    letter-spacing: 1px; /* Jarak antar huruf 1px */
+    font-family: "Quicksand", sans-serif; /* Menggunakan font Quicksand */
+}   
+
+/* Warna teks pada elemen paragraf dan item list di section_3 */
+.section_3 p, .section_3 ul li {
+    color: #555; /* Memberikan warna teks abu-abu muda */
+}
+
+/* Styling untuk paragraf di section_3 */
+.section_3 p {
+    margin-top: 3rem; /* Memberikan margin atas 3rem */
+    font-weight: bold; /* Membuat teks menjadi tebal */
+    font-size: 22px; /* Ukuran font 22px */
+}
+
+/* Styling untuk list (ul) di section_3 */
+.section_3 ul {
+    margin-top: 1.5rem; /* Memberikan margin atas 1.5rem */
+    font-size: 19px; /* Ukuran font untuk list 19px */
+    list-style-position: inside; /* Mengatur posisi list item agar berada di dalam margin */
+}
+
+/* Tombol di section_3 */
+.section_3 button {
+    width: 13rem; /* Lebar tombol 13rem */
+    margin-top: 4rem; /* Margin atas 4rem */
+    font-size: 1rem; /* Ukuran font tombol 1rem */
+    border: 2px solid black; /* Border tombol dengan ketebalan 2px dan warna hitam */
+    background-color: transparent; /* Latar belakang tombol transparan */
+    height: 4rem; /* Tinggi tombol 4rem */
+    transition: 0.3s; /* Transisi efek saat hover selama 0.3 detik */
+}
+
+/* Efek hover pada tombol di section_3 */
+.section_3 button:hover {
+    background-color: rgb(35, 35, 35); /* Latar belakang berubah menjadi abu-abu gelap saat hover */
+    color: white; /* Warna teks berubah menjadi putih saat hover */
+}
+
+/* Styling untuk form */
+form {
+    max-width: 600px; /* Lebar maksimum form 600px */
+    margin: 0 auto; /* Menyelaraskan form ke tengah */
+}
+
+/* Label untuk input field */
+label {
+    display: block; /* Menjadikan label sebagai blok */
+    font-size: 18px; /* Ukuran font label 18px */
+    margin-bottom: 5px; /* Margin bawah 5px */
+    color: #555; /* Warna teks label abu-abu muda */
+}
+
+/* Styling untuk small text di dalam label */
+label small {
+    font-size: 12px; /* Ukuran font kecil 12px */
+    color: #999; /* Warna teks abu-abu gelap */
+    margin-left: 5px; /* Margin kiri 5px */
+}
+
+/* Styling untuk baris input dalam form */
+.row {
+    display: flex; /* Menggunakan flexbox untuk baris input */
+    gap: 10px; /* Memberikan jarak antar input sebesar 10px */
+    margin-bottom: 20px; /* Memberikan margin bawah 20px */
+}
+
+/* Styling untuk input field dalam row */
+.row input {
+    flex: 1; /* Membuat input mengisi ruang yang tersedia */
+    padding: 10px; /* Padding dalam input sebesar 10px */
+    border: 1px solid #ccc; /* Border input dengan warna abu-abu */
+    background-color: #f0f0f0; /* Latar belakang input berwarna abu-abu terang */
+}
+
+/* Styling untuk input email dan input full-width */
+input[type="email"],
+.full-width {
+    width: 95%; /* Lebar 95% dari kontainer */
+    padding: 10px; /* Padding dalam input 10px */
+    margin-bottom: 20px; /* Margin bawah 20px */
+    border: 1px solid #ccc; /* Border input dengan warna abu-abu */
+    background-color: #f0f0f0; /* Latar belakang input berwarna abu-abu terang */
+}
+
+/* ====================== Footer ========================= */
+
+/* Styling untuk footer */
+footer {
+    margin-top: 16rem; /* Memberikan margin atas sebesar 16rem */
+}
+
+/* Styling untuk teks dalam footer */
+footer p {
+    color: rgb(100, 100, 100); /* Warna teks abu-abu */
+    font-family: serif; /* Menggunakan font serif untuk teks */
+    margin: 1rem; /* Memberikan margin 1rem di sekitar teks */
+}
+
+/* Styling untuk gambar dalam tautan di footer */
+footer a img {
+    width: 30px; /* Lebar gambar 30px */
+    margin: 1rem 0.5rem; /* Margin vertikal 1rem, horizontal 0.5rem */
+}
+
+/* Efek hover pada gambar di footer */
+footer a img:hover {
+    opacity: 0.6; /* Mengubah opacity gambar menjadi 0.6 saat hover */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 992px) {
+    .produk-item {
+        width: calc(33.333% - 30px); /* Menampilkan 3 kolom pada layar lebih kecil dari 992px */
+    }
+}
+
+@media (max-width: 768px) {
+    .produk-item {
+        width: calc(50% - 20px); /* Menampilkan 2 kolom pada layar lebih kecil dari 768px */
+    }
+}
+
+@media (max-width: 480px) {
+    .produk-item {
+        width: 100%; /* Menampilkan 1 kolom pada layar lebih kecil dari 480px */
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* Styling untuk navbar saat layar kecil */
+    .navbar {
+        margin: 0; /* Menghapus margin pada navbar */
+    }
+
+    /* Styling untuk signature pada layar kecil */
+    .signature {
+        font-size: 19px; /* Mengubah ukuran font menjadi 19px */
+        width: 100%; /* Lebar 100% */
+    }
+
+    /* Styling untuk header section pada layar kecil */
+    .section_1 h1 {
+        font-size: 19px; /* Mengubah ukuran font h1 menjadi 19px */
+    }
+
+    /* Mengatur tinggi slider pada layar kecil */
+    .slider {
+        height: 400px; /* Mengubah tinggi slider menjadi 400px */
+        margin: 0; /* Menghapus margin pada slider */
+    }
+
+    /* Mengatur ukuran logo pada layar kecil */
+    .logo img {
+        width: 80px; /* Mengubah lebar logo menjadi 80px */
+        height: auto; /* Menjaga proporsi gambar logo */
+    }
+
+    /* Mengatur tampilan navigasi kiri dan kanan pada layar kecil */
+    .nav-left, .nav-right a:not(:last-child) {
+        display: none; /* Menyembunyikan item navigasi kiri dan kanan */
+    }
+
+    /* Menampilkan hamburger menu pada layar kecil */
+    .hamburger {
+        display: flex; /* Menampilkan menu hamburger */
+    }
+
+    /* Styling untuk menu section di perangkat mobile */
+    .menu-item {
+        flex-direction: column; /* Menyusun item menu dalam kolom */
+        align-items: center; /* Menyelaraskan item secara horizontal di tengah */
+        text-align: center; /* Menyelaraskan teks di tengah */
+    }
+
+    .menu-item:nth-child(even) {
+        flex-direction: column; /* Mengubah urutan item menu pada item genap */
+    }
+
+    .menu-text {
+        position: static; /* Mengatur posisi menjadi statis */
+        margin-top: 20px; /* Memberikan margin atas 20px */
+        background-color: black; /* Latar belakang teks hitam */
+        color: white; /* Warna teks putih */
+        padding: 15px; /* Padding pada teks */
+        width: 90%; /* Lebar 90% dari kontainer */
+        max-width: none; /* Menghilangkan batasan lebar maksimal */
+        border-radius: 10px; /* Sudut melengkung pada teks */
+    }
+
+    #menu_left,
+    #menu_right {
+        margin: 0; /* Menghapus margin kiri dan kanan pada menu */
+        position: static; /* Mengatur posisi menjadi statis */
+    }
+
+    .menu-item img {
+        width: 90%; /* Mengatur lebar gambar menjadi 90% */
+        height: auto; /* Menjaga proporsi gambar */
+        max-width: 400px; /* Menetapkan lebar maksimal gambar 400px */
+    }
+}
